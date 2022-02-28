@@ -1,0 +1,19 @@
+version: '2'
+
+services:
+  roadrunner:
+    build:
+      context: ./
+      args:
+        RR_VERSION: ${RR_VERSION}
+        PHP_IMAGE_VERSION: ${PHP_IMAGE_VERSION}
+    ports:
+      - 8080:8080
+      - 9001:9001
+    environment:
+      RR_VERSION: ${RR_VERSION}
+      PHP_EXTENSION_GRPC: 1
+    working_dir: /usr/src/app
+    volumes:
+      - ./:/usr/src/app
+    command: ["/usr/bin/rr", "serve", "-d", "-c", ".rr.yaml"]
