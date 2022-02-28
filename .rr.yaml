@@ -28,6 +28,6 @@ http:
 #       level: error
 
 grpc:
-  listen: "tcp://localhost:9001"
+  listen: "tcp://0.0.0.0:9001"
   proto:
     - "proto/service.proto"
