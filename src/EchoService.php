@@ -1,11 +1,13 @@
 <?php
+
+namespace App;
 /**
  * Sample GRPC PHP server.
  */
 
-use App\Service\EchoInterface;
-use App\Service\Message;
 use Spiral\RoadRunner\GRPC\ContextInterface;
+use App\Generated\Grpc\EchoInterface;
+use App\Generated\Grpc\Message;
 
 class EchoService implements EchoInterface
 {
