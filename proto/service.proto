@@ -1,6 +1,9 @@
 syntax = "proto3";
 package service;
 
+option php_namespace = "App\\Generated\\Grpc";
+option php_metadata_namespace = "App\\Generated\\Grpc\\GPBMetadata";
+
 service Echo {
     rpc Ping (Message) returns (Message) {
     }

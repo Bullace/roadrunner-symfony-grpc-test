@@ -1,10 +1,11 @@
+version: "2.7"
 server:
-  command: "php bin/console baldinof:roadrunner:worker"
+  # command: "php bin/console baldinof:roadrunner:worker"
   # If you are using symfony 5.3+ and the new Runtime component:
   # remove the previous `command` line above and uncomment the line below.
-  # command: "php public/index.php"
+  command: "php public/index.php"
   env:
-    APP_RUNTIME: Baldinof\RoadRunnerBundle\Runtime\Runtime
+    - APP_RUNTIME: Baldinof\RoadRunnerBundle\Runtime\Runtime
 
 http:
   address: 0.0.0.0:8080
@@ -15,18 +16,18 @@ http:
     dir: "public"
     forbid: [ ".php", ".htaccess" ]
 
-logs:
-  mode: production
-  channels:
-    http:
-      level: debug # Log all http requests, set to info to disable
-    server:
-      level: info # Everything written to worker stderr is logged
-      mode: raw
-    metrics:
-      level: error
+# logs:
+#   mode: production
+#   channels:
+#     http:
+#       level: debug # Log all http requests, set to info to disable
+#     server:
+#       level: info # Everything written to worker stderr is logged
+#       mode: raw
+#     metrics:
+#       level: error
 
 grpc:
   listen: "tcp://localhost:9001"
   proto:
-    - "src/Service/service.proto"
+    - "proto/service.proto"
